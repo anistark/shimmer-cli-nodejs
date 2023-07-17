@@ -1,0 +1,32 @@
+{
+  "name": "shimmy",
+  "version": "0.0.1",
+  "description": "Sample CLI Tool to interact with Shimmer Network.",
+  "main": "bin/index.js",
+  "bin": {
+    "shimmy": "bin/index.js"
+  },
+  "type": "module",
+  "dependencies": {
+    "@iota/sdk": "^1.0.0-rc.2",
+    "boxen": "^7.1.1",
+    "chalk": "^5.3.0",
+    "commander": "^11.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev": "node bin/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anistark/shimmer-cli-nodejs.git"
+  },
+  "keywords": [],
+  "author": "Kumar Anirudha <mail@anirudha.dev>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/anistark/shimmer-cli-nodejs/issues"
+  },
+  "homepage": "https://github.com/anistark/shimmer-cli-nodejs#readme"
+}
