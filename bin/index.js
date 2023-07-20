@@ -20,10 +20,10 @@ import {
 } from '../commands/nft.js';
 
 program
-    .name('shimmy')
+    .name('shimy')
     .description('CLI to Shimmer Network. v' + VERSION)
     .version(VERSION)
-    // .addHelpText('beforeAll', printBox(chalk.white.bold("v" + VERSION),'Shimmy CLI'))
+    // .addHelpText('beforeAll', printBox(chalk.white.bold("v" + VERSION),'Shimy CLI'))
     .showHelpAfterError('(add --help for additional information)');
 
 program
