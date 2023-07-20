@@ -2,6 +2,14 @@
 
 Sample CLI Tool to interact with Shimmer Network using [iota-sdk](https://www.npmjs.com/package/@iota/sdk#getting-started).
 
+## Install
+
+`npm i -g shimy`
+
+## Usage
+
+`shimy --help`
+
 ## Commands
 
 - info : Get Info about Node
