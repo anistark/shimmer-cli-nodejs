@@ -23,6 +23,7 @@ Sample CLI Tool to interact with Shimmer Network using [iota-sdk](https://www.np
 - nft
   - mint: Mint new NFT
   - send: Send NFT to an address
+- send: Send SMR to an address
 
 ### Contribution Open
 

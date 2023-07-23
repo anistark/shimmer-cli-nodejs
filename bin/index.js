@@ -11,9 +11,9 @@ import {
     newAddress,
     getBalance
 } from '../commands/account.js';
-// import {
-//     newToken
-// } from '../commands/token.js';
+import {
+    send
+} from '../commands/transactions.js';
 import {
     mintNFT,
     sendNFT
@@ -30,6 +30,14 @@ program
     .command('info')
     .description('Info about this node.')
     .action(info);
+
+program
+    .command('send')
+    .argument('<alias>', 'Alias of your Wallet Account')
+    .argument('<address>', 'Receiver Address')
+    .argument('<amount>', 'Amount')
+    .description('Send SMR to an address.')
+    .action(send);
 
 const account = program.command('account');
 
