@@ -1,6 +1,6 @@
 {
   "name": "shimy",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Sample CLI Tool to interact with Shimmer Network.",
   "main": "bin/index.js",
   "bin": {
@@ -8,7 +8,7 @@
   },
   "type": "module",
   "dependencies": {
-    "@iota/sdk": "^1.0.0-rc.3",
+    "@iota/sdk": "^1.0.0",
     "boxen": "^7.1.1",
     "chalk": "^5.3.0",
     "commander": "^11.0.0",
