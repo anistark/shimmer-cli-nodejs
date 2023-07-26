@@ -25,7 +25,8 @@ import {
 } from '../commands/token.js';
 import {
     requestAddress,
-    requestToken
+    requestToken,
+    requestSmr
 } from '../commands/request.js';
 import {
     aiPrompt
