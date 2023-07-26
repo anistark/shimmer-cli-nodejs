@@ -98,6 +98,7 @@ export async function newAddress(alias) {
         const address = (await account.generateEd25519Addresses(1))[0];
 
         console.log(`Generated address:`, address.address);
+        return address.address;
     } catch (error) {
         console.error('Error: ', error);
     }

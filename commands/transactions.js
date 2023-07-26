@@ -3,21 +3,14 @@ const {
     Wallet,
     initLogger
 } = pkg;
+import { getUnlockedWallet } from './token.js';
 
 import 'dotenv/config';
 
 export async function send (alias, address, amount) {
-    initLogger();
+    // initLogger();
     try {
-        if (!process.env.STRONGHOLD_PASSWORD) {
-            throw new Error(
-                '.env STRONGHOLD_PASSWORD is undefined, see .env.example',
-            );
-        }
-
-        const wallet = new Wallet({
-            storagePath: process.env.WALLET_DB_PATH,
-        });
+        const wallet = await getUnlockedWallet();
 
         // Get the account we generated with `01-create-wallet`
         const account = await wallet.getAccount(alias);
@@ -44,7 +37,9 @@ export async function send (alias, address, amount) {
         );
 
         console.log(`Block sent: ${process.env.EXPLORER_URL}/block/${blockId}`);
+        return address;
     } catch (error) {
         console.error('Error: ', error);
+        return null;
     }
 }

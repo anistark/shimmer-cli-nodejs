@@ -18,6 +18,18 @@ import {
     mintNFT,
     sendNFT
 } from '../commands/nft.js';
+import {
+    newToken,
+    mintToken,
+    sendToken
+} from '../commands/token.js';
+import {
+    requestAddress,
+    requestToken
+} from '../commands/request.js';
+import {
+    aiPrompt
+} from '../commands/ai.js';
 
 program
     .name('shimy')
@@ -38,6 +50,11 @@ program
     .argument('<amount>', 'Amount')
     .description('Send SMR to an address.')
     .action(send);
+
+program
+    .command('ai')
+    .description('Enter Shimmer AI ✨')
+    .action(aiPrompt);
 
 const account = program.command('account');
 
@@ -72,13 +89,30 @@ address
     .description('Create new address.')
     .action(newAddress);
 
-// const token = program.command('token');
+const token = program.command('token');
 
-// token
-//     .command('new')
-//     // .argument('<alias>', 'Alias of your Wallet Account')
-//     .description('Create new Native Token.')
-//     .action(newToken);
+token
+    .command('new')
+    .argument('<alias>', 'Alias of your Wallet Account')
+    .description('Create new Native Token.')
+    .action(newToken);
+
+token
+    .command('mint')
+    .argument('<alias>', 'Alias of your Wallet Account')
+    .argument('<foundry>', 'Foundry ID of the Naitve Token')
+    .argument('<amount>', 'Amount of tokens to mint')
+    .description('Mint new Native Tokens.')
+    .action(mintToken);
+
+token
+    .command('send')
+    .argument('<alias>', 'Alias of your Wallet Account')
+    .argument('<foundry>', 'Foundry ID of the Naitve Token')
+    .argument('<amount>', 'Amount of tokens to mint')
+    .argument('<receiver>', 'Send to this address')
+    .description('Send Native Tokens to an address.')
+    .action(sendToken);
 
 const nft = program.command('nft');
 
@@ -94,5 +128,21 @@ nft
     .argument('<receiver>', 'Receiver Address to Send NFT to.')
     .description('Send NFT')
     .action(sendNFT);
+
+const request = program.command('request');
+
+request
+    .command('address')
+    .option('--token', 'Token requesting deposit for')
+    .description('Request an address to send deposit to.')
+    .action(requestAddress);
+
+request
+    .command('token')
+    .argument('<alias>', 'Alias of your Wallet Account')
+    .argument('<amount>', 'Alias of your Wallet Account')
+    .argument('<foundry>', 'Foundry ID of the token')
+    .description('Request token in exchange for SMR sent.')
+    .action(requestToken);
 
 program.parse();
