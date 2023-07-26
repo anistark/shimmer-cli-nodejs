@@ -141,9 +141,18 @@ request
     .command('token')
     .argument('<alias>', 'Alias of your Wallet Account')
     .argument('<address>', 'Address to Send SMR to.')
-    .argument('<amount>', 'Alias of your Wallet Account')
+    .argument('<amount>', 'Amount of SMR')
     .argument('<foundry>', 'Foundry ID of the token')
     .description('Request token in exchange for SMR sent.')
     .action(requestToken);
+
+request
+    .command('smr')
+    .argument('<alias>', 'Alias of your Wallet Account')
+    .argument('<address>', 'Address to Send token to.')
+    .argument('<amount>', 'Amount of Native Token')
+    .argument('<foundry>', 'Foundry ID of the token')
+    .description('Request SMR in exchange for Native Token sent.')
+    .action(requestSmr);
 
 program.parse();
