@@ -19,7 +19,7 @@ export async function requestAddress(options) {
     return address;
 }
 
-export async function requestToken(alias, amount, foundry) {
+export async function requestToken(alias, address, amount, foundry) {
     // let address = await newAddress('Brian');
     initLogger();
     if (!process.env.WALLET_DB_PATH) {
@@ -40,18 +40,12 @@ export async function requestToken(alias, amount, foundry) {
         // To create an address we need to unlock stronghold.
         await wallet.setStrongholdPassword(process.env.STRONGHOLD_PASSWORD);
 
-        const address = (await account.generateEd25519Addresses(1))[0];
-
-        console.log(`Generated address:`, address.address);
-        // May want to ensure the account is synced before sending a transaction.
         const balance = await account.sync();
 
-        const receiver = address.address;
-
-        console.log('Sending', amount, 'to', receiver);
+        console.log('Sending', amount, 'to', address);
         const parsedAmount = BigInt(amount);
 
-        const transaction = await account.send(parsedAmount, receiver, {
+        const transaction = await account.send(parsedAmount, address, {
             allowMicroAmount: true,
         });
 

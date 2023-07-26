@@ -140,6 +140,7 @@ request
 request
     .command('token')
     .argument('<alias>', 'Alias of your Wallet Account')
+    .argument('<address>', 'Address to Send SMR to.')
     .argument('<amount>', 'Alias of your Wallet Account')
     .argument('<foundry>', 'Foundry ID of the token')
     .description('Request token in exchange for SMR sent.')
